@@ -18,7 +18,7 @@ Custom connectors now provide the following functionalities::
 This demo will build a DynamoDB source connector since currently a fully-managed DynamoDB source connector from Confluent isn't supported, so this opens up an opportunity to spin up the custom connector. We will compare the user experience and production considerations between self-managing vs fully-managing the custom connector. Confluent's custom connector not only manages the deployment and infrastructure of the connector, but also provides visibility into potential errors in the Logs tab that would save the user a lot of time to troubleshoot. My personal experience with this feature helped me identify authentication, configuration and networking issues that otherwise would take me weeks to figure out. 
 
 ------------------------------------------------------------------------------------------------------------
-## Setup
+# Setup
 This demo will use a supermarket grocery list with 10k items that include customer datapoints like their name, category of industry, city, order date, profit, sales, etc. We chose this dataset because is a fairly large dataset, and supermarket use cases are very common amongst Confluent customers due to the need to have real-time visibility on their customers and orders. I have already uploaded the csv into DynamoDB and for speed sake, you can upload this csv into s3 and click on Import to DynamoDB to import the entire dataset immediately.
 
 ## Spin up S3 bucket, upload Supermart_Grocery_Sales.csv and then import to DynamoDB
@@ -48,7 +48,7 @@ This demo will use a supermarket grocery list with 10k items that include custom
     Create second tag:
         key = datelake-ingest, value = null/empty
     ```
-    
+------------------------------------------------------------------------------------------------------------    
 ## Spin up Confluent Cloud Cluster in AWS in one of the following regions that Custom Connector is currently available in:  
     us-east-1, us-east-2, us-west-2, eu-west-1, & eu-central-1
 ------------------------------------------------------------------------------------------------------------
@@ -67,13 +67,13 @@ This demo will use a supermarket grocery list with 10k items that include custom
     manifest.json
     ```
 ------------------------------------------------------------------------------------------------------------
-## Demo
+# Demo
 
 ### Self-managed: set up local connect worker with Confluent Platform in Docker
 https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html 
 
 
-### Fully-managed: Set up Connector Plugin
+## Fully-managed: Set up Connector Plugin
 
 <div align="center"> 
   <img src="images/connector_plugin.png" width =100% heigth=100%>
@@ -98,7 +98,7 @@ https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
 5. Click Submit
 
 
-### Spin up DynamoDB Source Custom Connector
+## Spin up DynamoDB Source Custom Connector
 1. Go to Connectors
    
 2. Click Filter by Deployment: Custom and choose DynamoDB Custom connector
@@ -127,7 +127,7 @@ https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
 6. Assign Connector name: DynamoDB Custom connector
 
 
-### View the retail topic in CC
+## View the retail topic in CC
 1. Go to Topics
  
 2. Click on supermarket-customer topic
@@ -135,7 +135,7 @@ https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
 3. View messages to see the messages in real time and can also open the drop-down menu to see the schemas
 
 
-### Monitor the connector in CC
+## Monitor the connector in CC
 
 1. In Topics, click on auto-generated connector logs topic.
     
@@ -146,7 +146,7 @@ https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
 </div>
  
 2. Go back to DynamoDB Custom connector and see the Log tab
-   > Identifies the real-time actions of the connector (auto-creating topic, search for tables w/ datalake-ingest tag, search for changed Dynamodb table, etc) and any potential errors (authentication, configuration, networking etc)
+   > Identifies the real-time actions of the connector (auto-creating topic, search for tables with datalake-ingest tag, search for changed Dynamodb table, etc) and any potential errors (authentication, configuration, networking etc)
 
 <div align="center"> 
   <img src="images/connector_metrics.png" width =100% heigth=100%>
@@ -158,7 +158,7 @@ https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
    ```
    
 ------------------------------------------------------------------------------------------------------------
-## Teardown
+# Teardown
 
 > Delete dynamodb source custom connector
 
@@ -173,5 +173,5 @@ https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
 3. Go to Cluster Settings and click Delete Cluster
 
 ------------------------------------------------------------------------------------------------------------
-## Conclusion
+# Conclusion
 Custom connectors allow you to run any Kafka connector on Confluent Cloud without needing to manage its underlying infrastructure. They add flexibility by providing a managed solution for your own connectors, enabling teams to seamlessly integrate with any data system using any Kafka Connect plugin from any source without needing code changes. Teams will also be able to ensure healthy and highly available custom connectors by leveraging detailed built-in logs and metrics for the connectors and Connect workers. Custom connectors eliminate the operational burdens of manually provisioning connector resources and perpetually managing Connect clusters so that you build managed streaming data pipelines faster.
