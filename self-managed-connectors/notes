@@ -1,0 +1,47 @@
+Following this doc:
+https://docs.confluent.io/cloud/current/cp-component/connect-cloud-config.html
+
+Or this doc:
+https://rmoff.net/2021/01/11/running-a-self-managed-kafka-connect-worker-for-confluent-cloud/
+
+Or this doc for K8s:
+https://mycloudjourney.medium.com/tutorial-basic-how-to-deploy-self-managed-confluent-connect-platform-de7bb4540f38
+
+https://docs.confluent.io/operator/current/overview.html
+
+You can use containers (docker or k8s) to make things easier or tarball to
+ understand.
+
+Let's use Docker for the simplicity of the demo.
+First, I connect to Confluent Cloud and download a client configuration
+file. I bring this up in another window for reference so I can copy and paste
+the information into the template docker-compose.
+
+
+
+Let's use tarball as in the connect-cloud-config example. We could use Docker
+but the docker post in the docs points to cp-all-in-one which takes you to
+an incomplete session.  
+
+There exists tooling to make self-managing easier but this tooling doesn't
+obviate the required expertise and it doesn't bring reduce the number of
+ variances or considerations for running in production down. Things change
+and considerations change and this represents an ongoing cost.
+
+Download self-managed
+Just grabbed confluent-7.4.1.tar
+
+Set up a Confluent Cloud basic cluster
+Created an access key 
+Created a schema registry key
+Copied the client config
+
+
+Following the doc, I copied and pasted the my-connect-standalone.properties
+to configure Kafka Connect.
+
+Edited the client config for the username, password, bootstrap servers, and path
+
+ 
+
+
