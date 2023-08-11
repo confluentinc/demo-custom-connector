@@ -13,12 +13,7 @@ Custom connectors now provide the following functionalities::
 - Upload your connector plugin and provision Custom Connector instances
 - Debug productively using connector and worker-level logs 
 - Monitor health and performance metrics of your custom connectors
-------------------------------------------------------------------------------------------------------------
-## Sheryl's slide comparing self vs fully-managed connectors
 
-
-------------------------------------------------------------------------------------------------------------
-## Self-managed vs fully-managed Custom Connector
 This demo will build a DynamoDB source connector since currently a fully-managed DynamoDB source connector from Confluent isn't supported, so this opens up an opportunity to spin up the custom connector. We will compare the user experience and production considerations between self-managing vs fully-managing the custom connector. Confluent's custom connector not only manages the deployment and infrastructure of the connector, but also provides visibility into potential errors in the Logs tab that would save the user a lot of time to troubleshoot. My personal experience with this feature helped me identify authentication, configuration and networking issues that otherwise would take me weeks to figure out. 
 
 ------------------------------------------------------------------------------------------------------------
