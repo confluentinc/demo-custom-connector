@@ -25,18 +25,18 @@
   "name": "kafka-connect-dynamodb",
 
   "owner": {
-    "logo": "assets/confluent_logo.jpg",
-    "name": "Confluent, Inc.",
+    "logo": "assets/trustpilot.jpg",
+    "name": "Trust Pilot",
     "type": "organization",
-    "url": "https://confluent.io/",
+    "url": "https://trustpilot.com/",
     "username": "confluentinc"
   },
 
   "support": {
-    "logo": "assets/confluent_logo.jpg",
-    "provider_name": "Confluent, Inc.",
-    "summary": "We provide full support for this connector, alongside community members who contribute to it as an open-source project.",
-    "url": "https://confluent.io/"
+    "logo": "assets/trustpilot.jpg",
+    "provider_name": "Trust Pilot",
+    "summary": "Unsupported",
+    "url": "https://trustpilot.com"
   },
 
   "tags": [
